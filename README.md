@@ -10,7 +10,7 @@ This is a minimal Spring Boot web application demonstrating an appointment booki
 ### Option 1: Run with Maven directly
 1. Build and run with Maven:
    ```
-   mvn spring-boot:run
+ mvn spring-boot:run
    ```
 
 2. Open browser:
@@ -19,7 +19,7 @@ This is a minimal Spring Boot web application demonstrating an appointment booki
 ### Option 2: Build and run JAR
 1. Build the package:
    ```
-   mvn clean package
+      mvn clean package
    ```
 
 2. Run the JAR file:
