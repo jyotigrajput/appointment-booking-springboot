@@ -1,0 +1,21 @@
+
+services:
+  mysql_container :
+    image : mysql
+    environment :
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: appointment_app
+    volumes:
+      - app_data:/var/lib/mysql
+      - ./src:/docker-entrypoint-initdb.d:ro 
+  
+  appointment_app:
+    build : .
+    ports :
+      - "8080:8081"
+
+    depends_on:
+      - mysql_container
+
+volumes:
+  app_data:
