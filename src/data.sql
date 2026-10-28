@@ -5,7 +5,8 @@ use appointment_app;
 CREATE TABLE IF NOT EXISTS customer (
     id BIGINT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL
+    email VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS appointment (
@@ -13,6 +14,7 @@ CREATE TABLE IF NOT EXISTS appointment (
     customer_id BIGINT NOT NULL,
     appointment_time TIMESTAMP NOT NULL,
     notes VARCHAR(500),
+    PRIMARY KEY (id),
     FOREIGN KEY (customer_id) REFERENCES customer(id)
 );
 
