@@ -3,13 +3,13 @@ CREATE DATABASE IF NOT EXISTS appointment_app;
 use appointment_app;
 
 CREATE TABLE IF NOT EXISTS customer (
-    id BIGINT PRIMARY KEY,
+    id BIGINT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS appointment (
-    id BIGINT PRIMARY KEY,
+    id BIGINT NOT NULL AUTO_INCREMENT,
     customer_id BIGINT NOT NULL,
     appointment_time TIMESTAMP NOT NULL,
     notes VARCHAR(500),
