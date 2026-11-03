@@ -4,7 +4,7 @@ on:
  workflow_dispatch: {}
 
 jobs:
-   Build:
+   Build and Push:
      runs-on: ubuntu-latest
      steps:
         - name: Clone the code
@@ -16,8 +16,20 @@ jobs:
             java-version: '17'
             distribution: 'temurin' 
         
-        - name: Build with docker
-          run : docker build -t appointment-app .
+        - name : Docker login
+          uses : docker/login-action@v4
+          with :
+            username: ${{ secrets.DOCKERHUB_USERNAME }}
+            password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+        - name : Build & Push docker image
+          uses : docker/build-push-action@v7
+          with:
+           context : .
+           push : true
+           tags : ${{ vars.DOCKERHUB_USERNAME }}/appointement-app:latest
+
+        
         
 
 
