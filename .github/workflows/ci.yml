@@ -17,7 +17,7 @@ jobs:
             distribution: 'temurin' 
         
         - name: Build with docker
-          run : docker build -t appointment-app ./src
+          run : docker build -t appointment-app .
         
 
 
