@@ -30,6 +30,11 @@ jobs:
            push : true
            tags : ${{ vars.DOCKERHUB_USERNAME }}/appointement-app:latest
 
+   deploy :
+    needs : [ Build_Push ]
+    uses : ./.github/workflows/CD.yml
+    secrets: inherit
+    
         
         
 
