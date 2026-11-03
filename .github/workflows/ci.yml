@@ -4,7 +4,7 @@ on:
  workflow_dispatch: {}
 
 jobs:
-   Build and Push:
+   Build_Push:
      runs-on: ubuntu-latest
      steps:
         - name: Clone the code
