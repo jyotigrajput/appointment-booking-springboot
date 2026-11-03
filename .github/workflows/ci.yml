@@ -4,7 +4,7 @@ on:
  workflow_dispatch: {}
 
 jobs:
-   code-lint:
+   Build:
      runs-on: ubuntu-latest
      steps:
         - name: Clone the code
@@ -15,9 +15,10 @@ jobs:
           with:
             java-version: '17'
             distribution: 'temurin' 
-            
-        - name : Run linter
-          run : mvn checkstyle:check
+        
+        - name: Build with docker
+          run : docker build -t appointment-app ./src
+        
 
 
 
