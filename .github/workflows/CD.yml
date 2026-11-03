@@ -1,0 +1,26 @@
+name : CD
+
+on:
+  workflow_call:
+
+jobs:
+   deploy :
+     runs-on: ubuntu-latest
+     steps:
+       - name : Checkout code
+         uses: actions/checkout@v4
+
+       - name : Docker login
+         uses: actions/login-action@v4
+         with:
+           username : ${{ vars.DOCKERHUB_USERNAME }}
+           password : ${{ secrets.DOCKERHUB_TOKEN }}
+           
+       - name : Deploy container
+         run :
+           docker compose pull
+           docker compose up -d
+
+        
+    
+   
